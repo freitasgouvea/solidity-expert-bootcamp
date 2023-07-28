@@ -3,9 +3,7 @@ pragma solidity 0.8.4;
 
 contract ArrayContract {
 
-  uint[] public lastResult;
-
-  function remove(uint[] memory arr, uint[] memory indexes) public returns(uint[] memory) {
+  function remove(uint[] memory arr, uint[] memory indexes) public pure returns(uint[] memory) {
     require(arr.length > 0, "Array 'arr' must not be empty");
     require(indexes.length > 0, "Array 'indexes' must not be empty");
 
@@ -21,28 +19,16 @@ contract ArrayContract {
     uint counter = 0;
 
     // loop to asign to arr new values 
-    for (uint i = 0; i < arr.length - indexes.length; i++) {  
-      if (i == indexes[counter] && indexes.length > counter) {
-        counter++;
-      }
-      if (counter < 2) {
-        arr[i] = arr[i + counter];
-      } else {
-        arr[i] = arr[i + counter -1];
-      }
+    for (uint i = 0; i < arr.length; i++) {
+        if (counter < indexes.length && i == indexes[counter]) {
+          counter++;
+        } else {
+          arr[i - counter] = arr[i];
+        }
     }
 
-    // pop arr to remove unused items
-    if(indexes.length > 1) {
-      for (uint i = 0; i <= counter; i++) { 
-        assembly { mstore(arr, sub(mload(arr), 1)) }
-      }
-    } else {
-      assembly { mstore(arr, sub(mload(arr), 1)) }
-    }
-
-    // save in a state variable for tests propuses
-    lastResult = arr;
+    // Resize 'arr' to remove unused items
+    assembly { mstore(arr, sub(mload(arr), counter)) }
 
     return arr;
   }
