@@ -36,7 +36,7 @@ npm ls sol2uml -g
 To see contracts basic storage:
 
 ```
-sol2uml storage ./src -c BasicStorage
+sol2uml storage ./src -c Store
 ```
 
 Output example:
