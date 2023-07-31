@@ -31,7 +31,7 @@ To see which version you are using
 npm ls sol2uml -g
 ```
 
-# Usage
+### Usage
 
 To see contracts basic storage:
 
@@ -39,12 +39,23 @@ To see contracts basic storage:
 sol2uml storage ./src -c Store
 ```
 
-Output example:
+svg file with storage diagram is generated
 
-```
-
-```
 
 See [commands and options](https://github.com/naddison36/sol2uml/blob/master/README.md#usage)
 
 See exmaple to run [here](https://github.com/naddison36/sol2uml/blob/master/examples/storage/README.md)
+
+### Optimizations
+
+#### [Store.sol](./src/Store.sol)
+
+- 60 memory slots used
+
+<img src="./Store.svg">
+
+#### [StoreV2.sol](./src/StoreV2.sol)
+
+- 43 memory slots used
+
+<img src="./StoreV2.svg">
