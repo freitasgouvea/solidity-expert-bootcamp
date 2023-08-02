@@ -133,3 +133,5 @@ An unconventional of EXTCODECOPY is to use a deployed contract as the "storage" 
 6. Complete the assembly exercises in this [repo](https://github.com/ExtropyIO/ExpertSolidityBootcamp/tree/main/exercises/assembly)
 
 See `./assembly`
+
+See [diving-into-the-ethereum-vm-part-2-storage-layout](https://medium.com/@hayeah/diving-into-the-ethereum-vm-part-2-storage-layout-bc5349cb11b7)
