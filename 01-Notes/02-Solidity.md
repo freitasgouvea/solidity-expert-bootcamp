@@ -441,13 +441,20 @@ See [docs](https://docs.soliditylang.org/en/latest/types.html#user-defined-value
 
 ### Function Types
 
-- To understand this concept more easy image its a type that can recieves anything, including some object or function, in this case. Like in python when we pass a function as an object or an argument to another function. And the function that recieves this argument can use another parameterized function.
+Def: To understand this concept more easy image its a type that can recieves anything, including some object or function, in this case. Like in python when we pass a function as an object or an argument to another function. And the function that recieves this argument can use another parameterized function.
 
-- Doing this we can have a generic function that can execute another function.
+Goal: Doing this we can have a generic function that can execute another function.
 
-- `external`: if the function is external we need to know the address of contract and function signature
+`external`: if the function is external we need to know the address of contract and function signature. 
+
+External and public functions have these two essential members (properties):
+
+- `.address` returns the address of the contract of the function.
+- `.selector` returns the ABI function selector.
 
 See [docs](https://docs.soliditylang.org/en/latest/types.html#function-types)
+
+See [tutorial](https://blog.finxter.com/data-types-in-solidity-smart-contract-part-24-function-types/)
 
 #### Function type conversions
 
