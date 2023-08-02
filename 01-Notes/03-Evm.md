@@ -166,6 +166,8 @@ For VARIABLE SIZE length items such as arrays and mappings, the storage slot con
 
 THE ORDER is the same of the contract!!!
 
+For mapping/account storage key value pair both sides have 256-bits. In this case, change the value from `uint256` to `uint8` has no effect for optimization storage.
+
 ### Code execution
 
 1. evm code provide instructions to execute the stack
