@@ -441,7 +441,22 @@ See [docs](https://docs.soliditylang.org/en/latest/types.html#user-defined-value
 
 ### Function Types
 
+- To understand this concept more easy image its a type that can recieves anything, including some object or function, in this case. Like in python when we pass a function as an object or an argument to another function. And the function that recieves this argument can use another parameterized function.
+
+- Doing this we can have a generic function that can execute another function.
+
+- `external`: if the function is external we need to know the address of contract and function signature
+
 See [docs](https://docs.soliditylang.org/en/latest/types.html#function-types)
+
+#### Function type conversions
+
+We can do it if: 
+
+1) identical parameters types and order
+2) identical return types and order
+3) same visibility
+4) same state mutability (pure, view payable);
 
 ## Recent changes
 
