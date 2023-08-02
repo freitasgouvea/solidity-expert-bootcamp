@@ -54,7 +54,7 @@ See exmaple to run [here](https://github.com/naddison36/sol2uml/blob/master/exam
 
 <img src="./Store.svg">
 
-#### [StoreV2.sol](./src/StoreV2.sol)
+#### [StoreV2.sol](./src/StoreV2.sol) - Optimizeded Code
 
 - 43 memory slots used
 
