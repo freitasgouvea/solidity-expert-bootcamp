@@ -16,7 +16,7 @@ function query(uint _amount, address _receiver, X) public {
 }
 ```
 
-A: See [here]()
+A: See [Query.sol](./src//Query.sol)
 
 #### Question 2
 
