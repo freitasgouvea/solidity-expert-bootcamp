@@ -31,8 +31,6 @@ contract QueryTest is Test {
     }
 
     function testQuery() public {
-        // function(address, uint256) external returns (bool) transferFunction = erc20.transferWrapper;
-
         vm.prank(sender);
         query.query(500, receiver, "transfer(address,uint256)");
 
@@ -41,8 +39,6 @@ contract QueryTest is Test {
     }
 
     function testRevert() public {
-        // function(address, uint256) external returns (bool) transferFunction = erc20.transferWrapper;
-
         vm.prank(sender);
         vm.expectRevert();
         query.query(10000, receiver, "transfer(address,uint256)");
