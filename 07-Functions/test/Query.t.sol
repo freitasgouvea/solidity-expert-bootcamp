@@ -16,9 +16,11 @@ contract QueryTest is Test {
     function setUp() public {
         vm.startPrank(owner);
 
-        query = new Query();
+
         erc20 = new Erc20();
         erc20.mint(sender, 1000);
+
+        query = new Query(address(erc20));
 
         vm.stopPrank();
     }
@@ -29,20 +31,20 @@ contract QueryTest is Test {
     }
 
     function testQuery() public {
-        function(address, uint256) external returns (bool) transferFunction = erc20.transferWrapper;
+        // function(address, uint256) external returns (bool) transferFunction = erc20.transferWrapper;
 
         vm.prank(sender);
-        query.query(500, receiver, transferFunction);
+        query.query(500, receiver, "transfer(address,uint256)");
 
         assertEq(erc20.balanceOf(sender), 500);        
         assertEq(erc20.balanceOf(receiver), 500);
     }
 
     function testRevert() public {
-        function(address, uint256) external returns (bool) transferFunction = erc20.transferWrapper;
+        // function(address, uint256) external returns (bool) transferFunction = erc20.transferWrapper;
 
         vm.prank(sender);
-        vm.expectRevert(bytes("ERC20: transfer amount exceeds balance"));
-        query.query(10000, receiver, transferFunction);
+        vm.expectRevert();
+        query.query(10000, receiver, "transfer(address,uint256)");
     }
 }
