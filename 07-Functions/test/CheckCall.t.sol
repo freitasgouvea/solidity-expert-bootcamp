@@ -23,7 +23,6 @@ contract CheckCallTest is Test {
 
   function testCheckCallEvent() public {
     vm.expectEmit(true, true, false, false);
-
     emit TransferOccurred(_to, _value);
     checkCall.checkCall(_data);
   }
