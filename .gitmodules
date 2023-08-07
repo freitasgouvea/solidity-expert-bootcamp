@@ -21,3 +21,6 @@
 [submodule "07-Functions/lib/openzeppelin-contracts"]
 	path = 07-Functions/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "08-GasOptimization/lib/forge-std"]
+	path = 08-GasOptimization/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
