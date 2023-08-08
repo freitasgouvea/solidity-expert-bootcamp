@@ -12,5 +12,11 @@ contract Amount {
             mstore(0x1, a)
             return(0x1, 32)
         }
+
+        // more optimized assembly: 
+        // change returns to (uint256 value)
+        // assembly {
+        //     value := callvalue()
+        // }
     }
 }

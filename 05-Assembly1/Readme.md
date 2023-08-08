@@ -6,6 +6,8 @@ See [gist](https://gist.github.com/extropyCoder/4243c0f90e6a6e97006a31f5b9265b94
 
 When we do the CODECOPY operation, what are we overwriting ? (debugging this in Remix might help here)
 
+The codecopy overwrites the first memory slots including the free memory pointer
+
 A: The CODECOPY operation is executed after the constructor execution and copies the code of the running contract to memory.
 
 Memory before the CODECOPY:
@@ -33,6 +35,8 @@ Memory after the CODECOPY:
 
 2. Could the answer to Q1 allow an optimisation ?
 
+We could remove the free memory pointer initialisation code since it is not used
+
 A: I tested to use an initializer to set value and the Memory after the CODECOPY has one more item using slot `0xc0`: 
 
 ```
@@ -49,7 +53,7 @@ I dont think its posible to optimize the CODECOPY operation, bucause we will sto
 
 3. Can you trigger a revert in the init code in Remix ?
 
-A: Yes, ths tx is reverted and the contract is not deployed.
+A: Yes, ths tx is reverted and the contract is not deployed. You also can in Remix by sending wei as you deploy the contract.
 
 Example tested:
 
