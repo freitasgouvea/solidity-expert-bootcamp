@@ -24,3 +24,6 @@
 [submodule "08-GasOptimization/lib/forge-std"]
 	path = 08-GasOptimization/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "10-GasOptimization/lib/forge-std"]
+	path = 10-GasOptimization/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std

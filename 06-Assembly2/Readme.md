@@ -46,7 +46,7 @@ The runtime bytecode for this contract is
 0x68601e8060093d393df35952383d59396009380160173d828234f050f0ff
 ```
 
-A: This code seem to be calculating values and executing the deployment of the contract. 
+A: This code seem to be calculating values (simulates cell division) and executing the deployment of the contract. 
 
 3. Explain what the following code is doing in the Yul ERC20 contract:
 
