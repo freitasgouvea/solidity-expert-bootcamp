@@ -1,5 +1,6 @@
 # Homework 10
-Optimisation 2
+## Optimisation 2
+
 1. Why are negative numbers more expensive to store than positive numbers ?
 
 A: Negative numbers are more expensive to store than positive numbers in EVM because they require an extra bit to store the sign. This is because the EVM uses two's complement representation for negative numbers, where the most significant bit is used to indicate the sign (0 for positive, 1 for negative). This means that a uint256, which can store up to 256 bits of data, can only store 255 bits of data for negative numbers. 
@@ -9,19 +10,17 @@ In addition, negative numbers require more operations to be performed on them. F
 2. Test the following statements in Remix, which is cheaper and why ?
 Assume that the denominator can never be zero.
 
-1.
 ```
 result = numerator / demoninator;
 ```
 
-2.
 ```
 assembly {
 result := div(numerator, demoninator)
 }
 ```
 
-A: The assmebly code is more cheaper. The Solidity division algorithm is based on the [Newton-Raphson method](), which is a relatively slow algorithm. The assembly division algorithm is based on the [Booth's algorithm](), which is a much faster algorithm.
+A: The assmebly code is more cheaper. The assembly division algorithm is based on the [Booth's algorithm](), which is a much faster algorithm.
 
 Tests logs
 
