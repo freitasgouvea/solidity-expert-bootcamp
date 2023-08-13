@@ -95,11 +95,9 @@ It is impossible to know in advance whether your code is secure. However, you ca
 
 In the upgradeability the contract can be upgraded to a new version. This is useful to fix bugs or add new features to the contract.
 
-Upgradeability is a potential anti-pattern and should be used only if is really necessary.. It is useful in some cases, but it can be dangerous if it is not well tesed and implemented.
+Upgradeability is a potential anti-pattern and should be used only if is really necessary. It is useful in some cases, but it can be dangerous if it is not well tesed and implemented.
 
 Also the upgradeability can be used to exploit the contract. For example, the contract can be upgraded to a version that allows the owner to withdraw all the funds.
-
-Other risk is that owner of the contract can upgrade the contract to a malicious version and execute a rug pull.
 
 Some recommendations:
 
@@ -131,7 +129,7 @@ See example [here](https://consensys.github.io/smart-contract-best-practices/dev
 
 The rate limiting is a mechanism to limit the number of times that a function can be called in a period of time.
 
-One example of rate limiting is the `timelock` function in OpenZeppelin contracts.
+One example of rate limiting is the `timelock` function.
 
 ### Deployment
 
@@ -234,7 +232,9 @@ The tools that can be used to monitor the events are:
 
 ### Shadowing
 
-Shadowing is when a variable in a child contract has the same name as a variable in a parent contract. This can cause issues because the child contract can access the variable in the parent contract.
+Shadowing is when a variable has the same name of other variable. 
+
+In heritage, this can cause issues because the child contract can access the variable in the parent contract with the same name.
 
 To avoid this, you should use different names for the variables in the child and parent contracts.
 
@@ -366,7 +366,7 @@ See [details](https://scsfg.io/hackers/griefing/)
 
 ### Force Feeding
 
-This attack is done by sending ether to an contract that uses the ether balance to execute some kind of business logic.
+This attack is done by sending ether to contract that uses the ether balance to execute some kind of business logic.
 
 To avoid this, never use the balance of contrato to implement any business logic. If you need to do this, create a variable that store the balance and only can be modifieded when your logic permittis.
 
