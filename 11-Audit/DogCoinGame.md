@@ -14,7 +14,7 @@ The following is a list of the potential security issues that were identified du
   - The `addWinner` function does not require the caller to be an approved address. This means that any address can put addresses to the winners list, even if they have not paid the entry fee.
   - The `payout` function does not require the caller to be the owner of the contract. This means that any address can call the `payout` function.
 
-2) The DogCoinGame smart contract does not emit any events when players are added or winners are paid out.  
+2) The DogCoinGame smart contract does not emit any events when players are added to the player list or the winners lists, and also in the winners pay out.  
   - This means that it would be difficult to track down the smart contract calls.
   - This also means that it would be difficult to track down the source of any security breaches.
 
@@ -22,7 +22,7 @@ The following is a list of the potential security issues that were identified du
 
 4) The `addWinner` function does not validate the address of the player. This means that an attacker could call the `addWinner` function with a malicious address, which could then be used to steal funds from the contract. 
 
-5) The `addWinner` function permits the same address to be added multiple times. This means that an caller could add multiple times addrresses to the contract and take advantage of this.
+5) The `addWinner` function permits the same address to be added multiple times. This means that an caller could add multiple times addresses to the contract and take advantage of this.
 
 6) The `payout` function is intended to distribute rewards to winners when the contract balance reaches 100 ETH. But if the contract balance is more than 100 ETH, the payout function will not distribute any rewards and the funds will be locked in the contract.
 
@@ -34,7 +34,7 @@ The following are the recommendations for addressing the potential security issu
 
 1) The DogCoinGame smart contract should have a proper access control mechanism in place. This could be achieved by using the Access Control mechanism.
 
-2) The DogCoinGame smart contract should emit events when players are added or winners are paid out. This could be achieved by emitting events inside the `addPlayer` and `payout` functions.
+2) The DogCoinGame smart contract should emit events when players are added or winners are paid out. This could be achieved by emitting events inside the `addPlayer`, `addWinner` and `payout` functions.
 
 3) The `addPlayer` function should validate correctly the `msg.value`. This could be achieved by validating that the `msg.value` is equals to 1 ETH.
 
@@ -44,7 +44,7 @@ The following are the recommendations for addressing the potential security issu
 
 6) The `payout` function should distribute rewards to winners when the contract balance reaches 100 ETH. This could be achieved by verifying that the contract balance is equals or more to 100 ETH.
 
-7) The `amountToPay` variable inside `payout` function should not produce a overflow error. This could be achieved by modifyng the distribution logic to distribute the rewards to the winners.
+7) The `amountToPay` variable inside `payout` function should not produce a overflow error. This could be achieved by modifyng the calculations of amount and the logic to distribute the rewards to the winners.
 
 ## Conclusion
 
